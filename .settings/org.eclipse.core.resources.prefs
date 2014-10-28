@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-encoding//src/service/IUploadService.java=UTF-8
-encoding//src/service/impl/UploadServiceImplPortBindingStub.java=UTF-8
-encoding//src/service/impl/UploadServiceImplService.java=UTF-8
-encoding//src/service/impl/UploadServiceImplServiceLocator.java=UTF-8
+encoding//src/com/nova/service/IUploadService.java=UTF-8
+encoding//src/com/nova/service/impl/UploadServiceImplPortBindingStub.java=UTF-8
+encoding//src/com/nova/service/impl/UploadServiceImplService.java=UTF-8
+encoding//src/com/nova/service/impl/UploadServiceImplServiceLocator.java=UTF-8

@@ -5,11 +5,13 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package service.impl;
+package com.nova.service.impl;
 
-public class UploadServiceImplServiceLocator extends org.apache.axis.client.Service implements service.impl.UploadServiceImplService {
+public class UploadServiceImplServiceLocator extends org.apache.axis.client.Service implements com.nova.service.impl.UploadServiceImplService {
 
-    public UploadServiceImplServiceLocator() {
+	private static final long serialVersionUID = 1L;
+
+	public UploadServiceImplServiceLocator() {
     }
 
 
@@ -22,7 +24,7 @@ public class UploadServiceImplServiceLocator extends org.apache.axis.client.Serv
     }
 
     // Use to get a proxy class for UploadServiceImplPort
-    private java.lang.String UploadServiceImplPort_address = "http://localhost:8080/WebService/upload";
+    private java.lang.String UploadServiceImplPort_address = "http://112.64.16.63:8080/celloud/uploadService";
 
     public java.lang.String getUploadServiceImplPortAddress() {
         return UploadServiceImplPort_address;
@@ -39,7 +41,7 @@ public class UploadServiceImplServiceLocator extends org.apache.axis.client.Serv
         UploadServiceImplPortWSDDServiceName = name;
     }
 
-    public service.IUploadService getUploadServiceImplPort() throws javax.xml.rpc.ServiceException {
+    public com.nova.service.IUploadService getUploadServiceImplPort() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
             endpoint = new java.net.URL(UploadServiceImplPort_address);
@@ -50,9 +52,9 @@ public class UploadServiceImplServiceLocator extends org.apache.axis.client.Serv
         return getUploadServiceImplPort(endpoint);
     }
 
-    public service.IUploadService getUploadServiceImplPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public com.nova.service.IUploadService getUploadServiceImplPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            service.impl.UploadServiceImplPortBindingStub _stub = new service.impl.UploadServiceImplPortBindingStub(portAddress, this);
+            com.nova.service.impl.UploadServiceImplPortBindingStub _stub = new com.nova.service.impl.UploadServiceImplPortBindingStub(portAddress, this);
             _stub.setPortName(getUploadServiceImplPortWSDDServiceName());
             return _stub;
         }
@@ -72,8 +74,8 @@ public class UploadServiceImplServiceLocator extends org.apache.axis.client.Serv
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (service.IUploadService.class.isAssignableFrom(serviceEndpointInterface)) {
-                service.impl.UploadServiceImplPortBindingStub _stub = new service.impl.UploadServiceImplPortBindingStub(new java.net.URL(UploadServiceImplPort_address), this);
+            if (com.nova.service.IUploadService.class.isAssignableFrom(serviceEndpointInterface)) {
+                com.nova.service.impl.UploadServiceImplPortBindingStub _stub = new com.nova.service.impl.UploadServiceImplPortBindingStub(new java.net.URL(UploadServiceImplPort_address), this);
                 _stub.setPortName(getUploadServiceImplPortWSDDServiceName());
                 return _stub;
             }
@@ -105,7 +107,7 @@ public class UploadServiceImplServiceLocator extends org.apache.axis.client.Serv
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://impl.service/", "UploadServiceImplService");
+        return new javax.xml.namespace.QName("http://impl.service.nova.com/", "UploadServiceImplService");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +115,7 @@ public class UploadServiceImplServiceLocator extends org.apache.axis.client.Serv
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://impl.service/", "UploadServiceImplPort"));
+            ports.add(new javax.xml.namespace.QName("http://impl.service.nova.com/", "UploadServiceImplPort"));
         }
         return ports.iterator();
     }

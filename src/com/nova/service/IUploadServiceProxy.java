@@ -1,8 +1,8 @@
-package service;
+package com.nova.service;
 
-public class IUploadServiceProxy implements service.IUploadService {
+public class IUploadServiceProxy implements com.nova.service.IUploadService {
   private String _endpoint = null;
-  private service.IUploadService iUploadService = null;
+  private com.nova.service.IUploadService iUploadService = null;
   
   public IUploadServiceProxy() {
     _initIUploadServiceProxy();
@@ -15,7 +15,7 @@ public class IUploadServiceProxy implements service.IUploadService {
   
   private void _initIUploadServiceProxy() {
     try {
-      iUploadService = (new service.impl.UploadServiceImplServiceLocator()).getUploadServiceImplPort();
+      iUploadService = (new com.nova.service.impl.UploadServiceImplServiceLocator()).getUploadServiceImplPort();
       if (iUploadService != null) {
         if (_endpoint != null)
           ((javax.xml.rpc.Stub)iUploadService)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
@@ -38,40 +38,16 @@ public class IUploadServiceProxy implements service.IUploadService {
     
   }
   
-  public service.IUploadService getIUploadService() {
+  public com.nova.service.IUploadService getIUploadService() {
     if (iUploadService == null)
       _initIUploadServiceProxy();
     return iUploadService;
   }
   
-  public boolean saveFile(java.lang.String arg0, byte[] arg1, int arg2, long arg3, int arg4) throws java.rmi.RemoteException{
+  public long getLength(java.lang.String arg0) throws java.rmi.RemoteException{
     if (iUploadService == null)
       _initIUploadServiceProxy();
-    return iUploadService.saveFile(arg0, arg1, arg2, arg3, arg4);
-  }
-  
-  public boolean checkMD5(java.lang.String arg0) throws java.rmi.RemoteException{
-    if (iUploadService == null)
-      _initIUploadServiceProxy();
-    return iUploadService.checkMD5(arg0);
-  }
-  
-  public byte[] getClient() throws java.rmi.RemoteException{
-    if (iUploadService == null)
-      _initIUploadServiceProxy();
-    return iUploadService.getClient();
-  }
-  
-  public java.lang.String getVersion() throws java.rmi.RemoteException{
-    if (iUploadService == null)
-      _initIUploadServiceProxy();
-    return iUploadService.getVersion();
-  }
-  
-  public int login(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
-    if (iUploadService == null)
-      _initIUploadServiceProxy();
-    return iUploadService.login(arg0, arg1);
+    return iUploadService.getLength(arg0);
   }
   
   public java.lang.String init(java.lang.Integer arg0, java.lang.String arg1, java.lang.String arg2) throws java.rmi.RemoteException{
@@ -90,6 +66,36 @@ public class IUploadServiceProxy implements service.IUploadService {
     if (iUploadService == null)
       _initIUploadServiceProxy();
     return iUploadService.getNumber(arg0);
+  }
+  
+  public java.lang.String getVersion() throws java.rmi.RemoteException{
+    if (iUploadService == null)
+      _initIUploadServiceProxy();
+    return iUploadService.getVersion();
+  }
+  
+  public int login(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
+    if (iUploadService == null)
+      _initIUploadServiceProxy();
+    return iUploadService.login(arg0, arg1);
+  }
+  
+  public boolean saveFile(java.lang.String arg0, byte[] arg1, int arg2, long arg3, int arg4) throws java.rmi.RemoteException{
+    if (iUploadService == null)
+      _initIUploadServiceProxy();
+    return iUploadService.saveFile(arg0, arg1, arg2, arg3, arg4);
+  }
+  
+  public boolean checkMD5(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (iUploadService == null)
+      _initIUploadServiceProxy();
+    return iUploadService.checkMD5(arg0);
+  }
+  
+  public byte[] getClient() throws java.rmi.RemoteException{
+    if (iUploadService == null)
+      _initIUploadServiceProxy();
+    return iUploadService.getClient();
   }
   
   
