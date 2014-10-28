@@ -6,10 +6,10 @@ import java.io.IOException;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import service.IUploadService;
+import service.IUploadServiceProxy;
 import utils.FileTools;
 
-import com.nova.service.IUploadService;
-import com.nova.service.IUploadServiceProxy;
 
 public class Test {
 	public static void main(String[] args) throws IOException {

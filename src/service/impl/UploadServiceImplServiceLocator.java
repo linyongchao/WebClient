@@ -5,9 +5,9 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package com.nova.service.impl;
+package service.impl;
 
-public class UploadServiceImplServiceLocator extends org.apache.axis.client.Service implements com.nova.service.impl.UploadServiceImplService {
+public class UploadServiceImplServiceLocator extends org.apache.axis.client.Service implements service.impl.UploadServiceImplService {
 
 	private static final long serialVersionUID = 1L;
 
@@ -41,7 +41,7 @@ public class UploadServiceImplServiceLocator extends org.apache.axis.client.Serv
         UploadServiceImplPortWSDDServiceName = name;
     }
 
-    public com.nova.service.IUploadService getUploadServiceImplPort() throws javax.xml.rpc.ServiceException {
+    public service.IUploadService getUploadServiceImplPort() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
             endpoint = new java.net.URL(UploadServiceImplPort_address);
@@ -52,9 +52,9 @@ public class UploadServiceImplServiceLocator extends org.apache.axis.client.Serv
         return getUploadServiceImplPort(endpoint);
     }
 
-    public com.nova.service.IUploadService getUploadServiceImplPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public service.IUploadService getUploadServiceImplPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            com.nova.service.impl.UploadServiceImplPortBindingStub _stub = new com.nova.service.impl.UploadServiceImplPortBindingStub(portAddress, this);
+            service.impl.UploadServiceImplPortBindingStub _stub = new service.impl.UploadServiceImplPortBindingStub(portAddress, this);
             _stub.setPortName(getUploadServiceImplPortWSDDServiceName());
             return _stub;
         }
@@ -74,8 +74,8 @@ public class UploadServiceImplServiceLocator extends org.apache.axis.client.Serv
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (com.nova.service.IUploadService.class.isAssignableFrom(serviceEndpointInterface)) {
-                com.nova.service.impl.UploadServiceImplPortBindingStub _stub = new com.nova.service.impl.UploadServiceImplPortBindingStub(new java.net.URL(UploadServiceImplPort_address), this);
+            if (service.IUploadService.class.isAssignableFrom(serviceEndpointInterface)) {
+                service.impl.UploadServiceImplPortBindingStub _stub = new service.impl.UploadServiceImplPortBindingStub(new java.net.URL(UploadServiceImplPort_address), this);
                 _stub.setPortName(getUploadServiceImplPortWSDDServiceName());
                 return _stub;
             }

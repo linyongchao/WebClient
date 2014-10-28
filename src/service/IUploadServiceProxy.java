@@ -1,8 +1,8 @@
-package com.nova.service;
+package service;
 
-public class IUploadServiceProxy implements com.nova.service.IUploadService {
+public class IUploadServiceProxy implements service.IUploadService {
   private String _endpoint = null;
-  private com.nova.service.IUploadService iUploadService = null;
+  private service.IUploadService iUploadService = null;
   
   public IUploadServiceProxy() {
     _initIUploadServiceProxy();
@@ -15,7 +15,7 @@ public class IUploadServiceProxy implements com.nova.service.IUploadService {
   
   private void _initIUploadServiceProxy() {
     try {
-      iUploadService = (new com.nova.service.impl.UploadServiceImplServiceLocator()).getUploadServiceImplPort();
+      iUploadService = (new service.impl.UploadServiceImplServiceLocator()).getUploadServiceImplPort();
       if (iUploadService != null) {
         if (_endpoint != null)
           ((javax.xml.rpc.Stub)iUploadService)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
@@ -38,7 +38,7 @@ public class IUploadServiceProxy implements com.nova.service.IUploadService {
     
   }
   
-  public com.nova.service.IUploadService getIUploadService() {
+  public service.IUploadService getIUploadService() {
     if (iUploadService == null)
       _initIUploadServiceProxy();
     return iUploadService;
